@@ -24,7 +24,7 @@ const requireAuth = (req, res, next) => {
   if (req.session.isAuthenticated) {
     next();
   } else {
-    res.status(401).json({
+    res.status(400).json({
       success: false,
       message: "Not authenticated",
     });
@@ -94,11 +94,11 @@ app.get("/security", (req, res) => {
 app.post("/special", (req, res) => {
   const { username, password } = req.body;
 
-  if (username === "simyeeugh" && password === "fizzypop") {
+  if (username === "simyeeugh" && password === "popcorn") {
     req.session.isAuthenticated = true;
     res.redirect("/success");
   } else {
-    res.status(401).json({ success: false, message: "Invalid credentials" });
+    res.status(400).json({ success: false, message: "Invalid credentials" });
   }
 });
 
