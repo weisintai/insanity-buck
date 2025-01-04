@@ -34,6 +34,10 @@ const requireAuth = (req, res, next) => {
 // Serve static files from 'public' directory
 app.use(express.static("public"));
 
+app.get("/", (req, res) => {
+  res.sendFile(path.join(__dirname, "public", "home.html"));
+});
+
 // Serve login page
 app.get("/special", (req, res) => {
   session.isAuthenticated = false;
