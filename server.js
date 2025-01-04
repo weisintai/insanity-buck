@@ -90,7 +90,7 @@ app.get("/security", (req, res) => {
 app.post("/special", (req, res) => {
   const { username, password } = req.body;
 
-  if (username === "simyeeugh" && password === "launchpage") {
+  if (username === "simyeeugh" && password === "fizzypop") {
     req.session.isAuthenticated = true;
     res.redirect("/success");
   } else {
