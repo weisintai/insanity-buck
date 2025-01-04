@@ -32,7 +32,7 @@ const requireAuth = (req, res, next) => {
 app.use(express.static("public"));
 
 // Serve login page
-app.get("/", (req, res) => {
+app.get("/special", (req, res) => {
   session.isAuthenticated = false;
   res.sendFile(path.join(__dirname, "public", "login.html"));
 });
@@ -84,7 +84,7 @@ app.get("/security", (req, res) => {
 });
 
 // Login endpoint
-app.post("/login", (req, res) => {
+app.post("/special", (req, res) => {
   const { username, password } = req.body;
 
   if (username === "admin" && password === "launchpage") {
